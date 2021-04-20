@@ -51,7 +51,7 @@ export const useTasks = (selectedProject) => {
   return { tasks, archivedTasks };
 };
 
-export const useProjects = (selectedProject) => {
+export const useProjects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -67,9 +67,8 @@ export const useProjects = (selectedProject) => {
           docId: project.id,
         }));
 
-        if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
+        if (JSON.stringify(allProjects) !== JSON.stringify(projects))
           setProjects(allProjects);
-        }
       });
   }, [projects]);
 

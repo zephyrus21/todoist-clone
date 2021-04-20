@@ -7,7 +7,7 @@ export const SelectedProjectProvider = ({ children }) => {
 
   return (
     <SelectedProjectContext.Provider
-      value={[selectedProject, setSelectedProject]}>
+      value={{ selectedProject, setSelectedProject }}>
       {children}
     </SelectedProjectContext.Provider>
   );
