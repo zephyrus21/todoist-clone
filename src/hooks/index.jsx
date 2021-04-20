@@ -4,7 +4,7 @@ import moment from 'moment';
 import { firebase } from '../firebase';
 import { collatedTasksExist } from '../helpers';
 
-export const usetasks = (selectedProject) => {
+export const useTasks = (selectedProject) => {
   const [tasks, setTasks] = useState([]);
   const [archivedTasks, setArchivedTasks] = useState([]);
 
@@ -51,11 +51,11 @@ export const usetasks = (selectedProject) => {
   return { tasks, archivedTasks };
 };
 
-export const usetasks = (selectedProject) => {
+export const useProjects = (selectedProject) => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    irebase
+    firebase
       .firestore()
       .collection('projects')
       .where('userId', '==', 'akhHjkf9d2')
