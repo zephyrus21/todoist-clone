@@ -14,9 +14,9 @@ export const Projects = ({ activeValue = null }) => {
       <li
         key={project.projectId}
         data-doc-id={project.docId}
-        data-testid='project-action'
+        data-testid='project-action-parent'
         className={
-          active == project.projectId
+          active === project.projectId
             ? 'active sidebar__project'
             : 'sidebar__project'
         }

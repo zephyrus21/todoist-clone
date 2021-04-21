@@ -6,6 +6,7 @@ import {
   FaRegCalendar,
 } from 'react-icons/fa';
 import { useSelectedProjectValue } from '../../context';
+import { AddProject } from '../AddProject';
 import { Projects } from '../Projects';
 
 export const SideBar = () => {
@@ -15,7 +16,7 @@ export const SideBar = () => {
 
   return (
     <div className='sidebar'>
-      <ul className='sidebar__genreic'>
+      <ul className='sidebar__generic'>
         <li className='inbox' data-testid='inbox'>
           <span>
             <FaInbox />
@@ -42,6 +43,7 @@ export const SideBar = () => {
         <h2>Projects</h2>
       </div>
       <ul className='sidebar__projects'>{showProjects && <Projects />}</ul>
+      <AddProject />
     </div>
   );
 };

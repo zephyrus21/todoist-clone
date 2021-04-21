@@ -7,6 +7,7 @@ export const Project = ({ project }) => {
   const [showConfirm, setShowConfirm] = useState(false);
   const { projects, setProjects } = useProjectsValue();
   const { setSelectedProject } = useSelectedProjectValue();
+
   const deleteProject = (docID) => {
     firebase
       .firestore()
@@ -32,10 +33,12 @@ export const Project = ({ project }) => {
           <div className='project-delete-modal'>
             <div className='project-delete-modal__inner'>
               <p>Are you sure you want to delete this project?</p>
-              <button onClick={() => deleteProject(project.projectId)}>
+              <button
+                type='button'
+                onClick={() => deleteProject(project.docId)}>
                 Delete
-                <span></span>
               </button>
+              <span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
             </div>
           </div>
         )}
