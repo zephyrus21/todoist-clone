@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import moment from 'moment';
-
 import { firebase } from '../firebase';
 import { collatedTasksExist } from '../helpers';
 
@@ -17,15 +16,15 @@ export const useTasks = (selectedProject) => {
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
         ? (unsubscribe = unsubscribe.where('projectId', '==', selectedProject))
-        : (selectedProject = 'TODAY'
-            ? (unsubscribe = unsubscribe.where(
-                'date',
-                '==',
-                moment().format('DD/MM/YYYY')
-              ))
-            : selectedProject === 'INBOX' || selectedProject === 0
-            ? (unsubscribe = unsubscribe.where('date', '==', ''))
-            : unsubscribe);
+        : selectedProject === 'TODAY'
+        ? (unsubscribe = unsubscribe.where(
+            'date',
+            '==',
+            moment().format('DD/MM/YYYY')
+          ))
+        : selectedProject === 'INBOX' || selectedProject === 0
+        ? (unsubscribe = unsubscribe.where('date', '==', ''))
+        : unsubscribe;
 
     unsubscribe = unsubscribe.onSnapshot((snapshot) => {
       const newTasks = snapshot.docs.map((task) => ({
@@ -42,7 +41,7 @@ export const useTasks = (selectedProject) => {
             )
           : newTasks.filter((task) => task.archived !== true)
       );
-      setArchivedTasks(newTasks.filter((task) => task.archived === true));
+      setArchivedTasks(newTasks.filter((task) => task.archived !== false));
     });
 
     return () => unsubscribe();
@@ -67,8 +66,9 @@ export const useProjects = () => {
           docId: project.id,
         }));
 
-        if (JSON.stringify(allProjects) !== JSON.stringify(projects))
+        if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           setProjects(allProjects);
+        }
       });
   }, [projects]);
 

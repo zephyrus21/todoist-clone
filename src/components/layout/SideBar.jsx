@@ -10,26 +10,44 @@ import { AddProject } from '../AddProject';
 import { Projects } from '../Projects';
 
 export const SideBar = () => {
-  const { setSelectedProject } = useSelectedProjectValue;
+  const { setSelectedProject } = useSelectedProjectValue();
   const [active, setActive] = useState('inbox');
   const [showProjects, setShowProjects] = useState(true);
 
   return (
     <div className='sidebar'>
       <ul className='sidebar__generic'>
-        <li className='inbox' data-testid='inbox'>
+        <li
+          onClick={() => {
+            setActive('inbox');
+            setSelectedProject('INBOX');
+          }}
+          className={active === 'inbox' ? 'active' : undefined}
+          data-testid='inbox'>
           <span>
             <FaInbox />
           </span>
           <span>Inbox</span>
         </li>
-        <li className='today' data-testid='today'>
+        <li
+          onClick={() => {
+            setActive('today');
+            setSelectedProject('TODAY');
+          }}
+          className={active === 'today' ? 'active' : undefined}
+          data-testid='today'>
           <span>
             <FaRegCalendar />
           </span>
           <span>Today</span>
         </li>
-        <li className='next_7' data-testid='next_7'>
+        <li
+          onClick={() => {
+            setActive('next_7');
+            setSelectedProject('NEXT_7');
+          }}
+          className={active === 'next_7' ? 'active' : undefined}
+          data-testid='next_7'>
           <span>
             <FaCalendarAlt />
           </span>
