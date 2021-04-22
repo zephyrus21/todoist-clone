@@ -3,7 +3,7 @@ import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import moment from 'moment';
 import { firebase } from '../firebase';
 import { useSelectedProjectValue } from '../context';
-// import { ProjectOverlay } from './ProjectOverlay';
+import { ProjectOverlay } from './ProjectOverlay';
 // import { TaskDate } from './TaskDate';
 
 export const AddTask = ({
@@ -104,12 +104,12 @@ export const AddTask = ({
               </div>
             </>
           )}
-          {/* <ProjectOverlay
+          <ProjectOverlay
             setProject={setProject}
             showProjectOverlay={showProjectOverlay}
             setShowProjectOverlay={setShowProjectOverlay}
           />
-          <TaskDate
+          {/* <TaskDate
             setTaskDate={setTaskDate}
             showTaskDate={showTaskDate}
             setShowTaskDate={setShowTaskDate}
