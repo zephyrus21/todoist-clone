@@ -42,7 +42,7 @@ export const AddTask = ({
           projectId,
           task,
           date: collatedDate || taskDate,
-          userId: 'jlIFXIwyAL3tzHMtzRbw',
+          userId: 'akhHjkf9d2',
         })
         .then(() => {
           setTask('');
@@ -62,12 +62,13 @@ export const AddTask = ({
           className='add-task__shallow'
           data-testid='show-main-action'
           onClick={() => setShowMain(!showMain)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') setShowMain(!showMain);
-          }}
-          tabIndex={0}
-          aria-label='Add task'
-          role='button'>
+          // onKeyDown={(e) => {
+          //   if (e.key === 'Enter') setShowMain(!showMain);
+          // }}
+          // tabIndex={0}
+          // aria-label='Add task'
+          // role='button'
+        >
           <span className='add-task__plus'>+</span>
           <span className='add-task__text'>Add Task</span>
         </div>
@@ -88,15 +89,16 @@ export const AddTask = ({
                     setShowProjectOverlay(false);
                     setShowQuickAddTask(false);
                   }}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      setShowMain(false);
-                      setShowProjectOverlay(false);
-                      setShowQuickAddTask(false);
-                    }
-                  }}
-                  tabIndex={0}
-                  role='button'>
+                  // onKeyDown={(e) => {
+                  //   if (e.key === 'Enter') {
+                  //     setShowMain(false);
+                  //     setShowProjectOverlay(false);
+                  //     setShowQuickAddTask(false);
+                  //   }
+                  // }}
+                  // tabIndex={0}
+                  // role='button'
+                >
                   X
                 </span>
               </div>
@@ -139,15 +141,16 @@ export const AddTask = ({
                 setShowMain(false);
                 setShowProjectOverlay(false);
               }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  setShowMain(false);
-                  setShowProjectOverlay(false);
-                }
-              }}
-              aria-label='Cancel adding a task'
-              tabIndex={0}
-              role='button'>
+              // onKeyDown={(e) => {
+              //   if (e.key === 'Enter') {
+              //     setShowMain(false);
+              //     setShowProjectOverlay(false);
+              //   }
+              // }}
+              // aria-label='Cancel adding a task'
+              // tabIndex={0}
+              // role='button'
+            >
               Cancel
             </span>
           )}
@@ -155,22 +158,24 @@ export const AddTask = ({
             className='add-task__project'
             data-testid='show-project-overlay'
             onClick={() => setShowProjectOverlay(!showProjectOverlay)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') setShowProjectOverlay(!showProjectOverlay);
-            }}
-            tabIndex={0}
-            role='button'>
+            // onKeyDown={(e) => {
+            //   if (e.key === 'Enter') setShowProjectOverlay(!showProjectOverlay);
+            // }}
+            // tabIndex={0}
+            // role='button'
+          >
             <FaRegListAlt />
           </span>
           <span
             className='add-task__date'
             data-testid='show-task-date-overlay'
             onClick={() => setShowTaskDate(!showTaskDate)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') setShowTaskDate(!showTaskDate);
-            }}
-            tabIndex={0}
-            role='button'>
+            // onKeyDown={(e) => {
+            //   if (e.key === 'Enter') setShowTaskDate(!showTaskDate);
+            // }}
+            // tabIndex={0}
+            // role='button'
+          >
             <FaRegCalendarAlt />
           </span>
         </div>
