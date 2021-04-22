@@ -3,7 +3,7 @@ import { firebase } from '../firebase';
 
 export const Checkbox = ({ id }) => {
   const archivedTask = () => {
-    firebase.firestore().collection().doc(id).update({ archived: true });
+    firebase.firestore().collection('tasks').doc(id).update({ archived: true });
   };
 
   return (
