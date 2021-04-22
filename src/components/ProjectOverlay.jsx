@@ -21,15 +21,16 @@ export const ProjectOverlay = ({
                   setProject(project.projectId);
                   setShowProjectOverlay(false);
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    setProject(project.projectId);
-                    setShowProjectOverlay(false);
-                  }
-                }}
-                role='button'
-                tabIndex={0}
-                aria-label='Select the task project'>
+                // onKeyDown={(e) => {
+                //   if (e.key === 'Enter') {
+                //     setProject(project.projectId);
+                //     setShowProjectOverlay(false);
+                //   }
+                // }}
+                // role='button'
+                // tabIndex={0}
+                // aria-label='Select the task project'
+              >
                 {project.name}
               </div>
             </li>
